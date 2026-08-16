@@ -20,3 +20,12 @@ jobs:
       - uses: pre-commit/action@v3.0.1
       - name: Self-check
         run: .venv/bin/python test_foveate_tools.py
+      - name: Build wheel
+        if: startsWith(github.ref, 'refs/tags/')
+        run: .venv/bin/python -m pip wheel . --no-deps --wheel-dir dist
+      - uses: actions/upload-artifact@v7
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: foveate-images-${{ github.ref_name }}
+          path: dist/*.whl
+          if-no-files-found: error

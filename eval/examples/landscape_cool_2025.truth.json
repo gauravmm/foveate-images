@@ -1,0 +1,276 @@
+{
+  "image": "landscape_cool_2025.png",
+  "seed": 20260817,
+  "year": 2025,
+  "layout": {
+    "rows": 3,
+    "columns": 4,
+    "first_weekday": "Sunday",
+    "body_bounds_px": [
+      32,
+      136,
+      1184,
+      955
+    ]
+  },
+  "palette": {
+    "blue": "#75b9e7",
+    "green": "#8dd39e"
+  },
+  "anchor_months": {
+    "ROOT/A1": "January",
+    "ROOT/B1": "February",
+    "ROOT/C1": "March",
+    "ROOT/D1": "April",
+    "ROOT/A2": "May",
+    "ROOT/B2": "June",
+    "ROOT/C2": "July",
+    "ROOT/D2": "August",
+    "ROOT/A3": "September",
+    "ROOT/B3": "October",
+    "ROOT/C3": "November",
+    "ROOT/D3": "December"
+  },
+  "highlights": [
+    {
+      "date": "2025-01-02",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-01-05",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-01-11",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-01-17",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-01-22",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-01-29",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-01-31",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-02-10",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-02-21",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-03-04",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-03-20",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-04-08",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-04-23",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-05-18",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-05-24",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-06-02",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-06-03",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-06-19",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-07-07",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-07-13",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-07-14",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-07-15",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-07-17",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-07-20",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-08-05",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-08-06",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-08-11",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-08-12",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-08-16",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-08-25",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-09-01",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-09-05",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-09-13",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-09-14",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-09-15",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-09-21",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-09-26",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-10-11",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-10-19",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-10-26",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-11-05",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-11-16",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-11-25",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-11-29",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-11-30",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-12-06",
+      "color": "green",
+      "hex": "#8dd39e"
+    },
+    {
+      "date": "2025-12-21",
+      "color": "blue",
+      "hex": "#75b9e7"
+    },
+    {
+      "date": "2025-12-23",
+      "color": "green",
+      "hex": "#8dd39e"
+    }
+  ]
+}

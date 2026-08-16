@@ -1,0 +1,277 @@
+{
+  "image": "tall_vivid_2027.png",
+  "seed": 20260819,
+  "year": 2027,
+  "layout": {
+    "rows": 6,
+    "columns": 2,
+    "first_weekday": "Sunday",
+    "body_bounds_px": [
+      32,
+      136,
+      728,
+      1594
+    ]
+  },
+  "palette": {
+    "violet": "#b495e8",
+    "orange": "#f3a45f",
+    "mint": "#70c9b2"
+  },
+  "anchor_months": {
+    "ROOT/A1": "January",
+    "ROOT/B1": "February",
+    "ROOT/A2": "March",
+    "ROOT/B2": "April",
+    "ROOT/A3": "May",
+    "ROOT/B3": "June",
+    "ROOT/A4": "July",
+    "ROOT/B4": "August",
+    "ROOT/A5": "September",
+    "ROOT/B5": "October",
+    "ROOT/A6": "November",
+    "ROOT/B6": "December"
+  },
+  "highlights": [
+    {
+      "date": "2027-01-05",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-01-14",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-01-18",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-01-20",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-01-30",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-02-01",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-02-03",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-02-04",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-02-24",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-02-26",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-03-19",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-03-31",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-04-03",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-04-07",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-04-14",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-04-17",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-05-10",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-05-14",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-05-18",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-05-19",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-06-03",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-06-13",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-06-20",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-06-28",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-07-08",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-07-15",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-07-18",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-07-27",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-08-01",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-08-18",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-08-24",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-09-15",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-09-22",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-09-23",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-09-25",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-10-14",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-10-19",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-10-24",
+      "color": "violet",
+      "hex": "#b495e8"
+    },
+    {
+      "date": "2027-11-03",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-11-21",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-11-25",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-11-30",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-12-07",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-12-10",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-12-15",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-12-21",
+      "color": "mint",
+      "hex": "#70c9b2"
+    },
+    {
+      "date": "2027-12-26",
+      "color": "orange",
+      "hex": "#f3a45f"
+    },
+    {
+      "date": "2027-12-31",
+      "color": "violet",
+      "hex": "#b495e8"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ Vision agents can notice the correct part of a dense image but still produce unr
 
 The synthetic 2026 calendar shows the problem. It has 12 month panels, small dates, and two highlight colors in one 976 by 1194 image.
 
-![Synthetic 2026 calendar with highlighted dates](examples/classic_warm_2026.png)
+![The source calendar, anchor map, raw crop, and labeled crop](eval/examples/classic_warm_2026_progression.png)
 
 A `4 x 3` map assigns one anchor to each month. For example, `ROOT/B2` is May. An agent can inspect all 12 raw crops, record the highlighted dates, and use the printed `RED` and `YELLOW` legend names without estimating pixels.
 
@@ -13,7 +13,7 @@ A `4 x 3` map assigns one anchor to each month. For example, `ROOT/B2` is May. A
 Copy `skills/foveate-images` into your agent's skill directory. Then ask the agent to load the skill:
 
 ```text
-Use $foveate-images to list every highlighted date in examples/classic_warm_2026.png.
+Use $foveate-images to list every highlighted date in eval/examples/classic_warm_2026.png.
 Use the color names printed in the legend.
 ```
 
@@ -21,7 +21,7 @@ The skill includes its own `foveate.py` script. If `uv` is available, PEP 723 me
 
 ```bash
 uv run skills/foveate-images/foveate.py map \
-  examples/classic_warm_2026.png \
+  eval/examples/classic_warm_2026.png \
   --output /tmp/foveate-calendar/map \
   --rows 4 \
   --columns 3 \
@@ -35,7 +35,9 @@ uv run skills/foveate-images/foveate.py focus \
 
 The `map` command writes raw and annotated overviews plus an anchor manifest. The `focus` command writes one lossless raw crop and one labeled navigation copy for each selected anchor. Add `--rows 2 --columns 2` to a focused anchor when its details remain too small.
 
-The example truth file at `examples/classic_warm_2026.truth.json` contains the exact highlighted date and color pairs. It is useful for evaluation, but do not give it to the agent during a blind test.
+The example truth file at `eval/examples/classic_warm_2026.truth.json` contains the exact highlighted date and color pairs. It is useful for evaluation, but do not give it to the agent during a blind test.
+
+The `eval/examples/` directory includes all five generated calendars, their truth sidecars, and a contact sheet for evaluation.
 
 ## Generate more calendars
 
