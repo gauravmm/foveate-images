@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.3
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format
+  - repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.411
+    hooks:
+      - id: pyright
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.23.2
+    hooks:
+      - id: markdownlint-cli2
+        args: [--fix]
+  - repo: local
+    hooks:
+      - id: ascii-only
+        name: ascii only
+        entry: >-
+          python3 -c "import sys; bad = [f for f in sys.argv[1:] if not
+          open(f, 'rb').read().isascii()]; sys.exit('non-ascii in: ' + ' '.join(bad)
+          if bad else 0)"
+        language: system
+        types_or: [python, markdown]
+        exclude: ^(spec|\.claude)/

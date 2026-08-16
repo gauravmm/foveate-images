@@ -1,0 +1,10 @@
+{
+  "config": {
+    "MD013": false,
+    "MD033": false,
+    // Pin the table style. Inference can demand padding in unrelated tables.
+    "MD060": { "style": "compact" }
+  },
+  // These vendored skills keep their upstream formatting.
+  "ignores": [".claude/**"]
+}

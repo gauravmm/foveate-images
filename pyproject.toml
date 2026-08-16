@@ -1,0 +1,40 @@
+[project]
+name = "foveate-images"
+version = "0.1.0"
+description = "A skill for deterministic, string-addressed image crops"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = ["Pillow>=10.2"]
+
+[project.scripts]
+generate-calendars = "foveate_tools.calendar:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["foveate_tools"]
+
+[dependency-groups]
+dev = ["pre-commit>=4.6.2", "pyright>=1.1.411", "ruff>=0.16.3"]
+
+[tool.ruff]
+# Ruff formats Python blocks inside markdown, which rewrites quoted snippets.
+extend-exclude = ["*.md", ".claude"]
+
+[tool.ruff.lint]
+extend-select = ["I", "B", "UP"]
+
+[tool.pyright]
+include = [
+  "foveate_tools",
+  "skills/foveate-images/foveate.py",
+  "scripts/score_calendar_results.py",
+  "test_foveate_tools.py",
+]
+typeCheckingMode = "strict"
+pythonVersion = "3.10"
+venvPath = "."
+venv = ".venv"

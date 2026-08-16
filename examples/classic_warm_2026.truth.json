@@ -1,0 +1,346 @@
+{
+  "image": "classic_warm_2026.png",
+  "seed": 20260818,
+  "year": 2026,
+  "layout": {
+    "rows": 4,
+    "columns": 3,
+    "first_weekday": "Monday",
+    "body_bounds_px": [
+      32,
+      136,
+      944,
+      1160
+    ]
+  },
+  "palette": {
+    "red": "#ef7870",
+    "yellow": "#f5cf58"
+  },
+  "anchor_months": {
+    "ROOT/A1": "January",
+    "ROOT/B1": "February",
+    "ROOT/C1": "March",
+    "ROOT/A2": "April",
+    "ROOT/B2": "May",
+    "ROOT/C2": "June",
+    "ROOT/A3": "July",
+    "ROOT/B3": "August",
+    "ROOT/C3": "September",
+    "ROOT/A4": "October",
+    "ROOT/B4": "November",
+    "ROOT/C4": "December"
+  },
+  "highlights": [
+    {
+      "date": "2026-01-04",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-01-15",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-01-20",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-01-29",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-02-08",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-02-09",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-02-12",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-02-18",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-02-20",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-02-25",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-02-28",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-03-14",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-03-25",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-03-31",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-04-01",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-04-08",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-04-14",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-04-16",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-04-22",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-04-28",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-05-08",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-05-10",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-05-15",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-05-17",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-06-08",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-06-15",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-06-23",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-06-27",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-06-28",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-07-03",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-07-09",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-08-01",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-08-03",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-08-13",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-08-24",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-08-26",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-08-31",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-09-05",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-09-08",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-09-09",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-09-21",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-09-23",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-10-07",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-10-15",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-10-16",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-10-18",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-10-23",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-10-28",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-11-11",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-11-14",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-11-19",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-11-20",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-11-22",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-11-24",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-11-27",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-12-01",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-12-13",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-12-14",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-12-15",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-12-16",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    },
+    {
+      "date": "2026-12-23",
+      "color": "red",
+      "hex": "#ef7870"
+    },
+    {
+      "date": "2026-12-31",
+      "color": "yellow",
+      "hex": "#f5cf58"
+    }
+  ]
+}

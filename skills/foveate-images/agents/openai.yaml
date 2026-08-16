@@ -1,0 +1,4 @@
+interface:
+  display_name: "Foveate Images"
+  short_description: "Navigate images through labeled recursive crops"
+  default_prompt: "Use $foveate-images to inspect this image through string-addressed crops."

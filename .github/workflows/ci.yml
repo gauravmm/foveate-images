@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - name: Install project
+        run: python3 -m pip install .
+      # The pre-commit config owns the ruff and pyright versions.
+      - uses: pre-commit/action@v3.0.1
+      - name: Self-check
+        run: python3 test_foveate_tools.py
