@@ -13,8 +13,10 @@ jobs:
         with:
           python-version: "3.14"
       - name: Install project
-        run: python3 -m pip install .
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install .
       # The pre-commit config owns the ruff and pyright versions.
       - uses: pre-commit/action@v3.0.1
       - name: Self-check
-        run: python3 test_foveate_tools.py
+        run: .venv/bin/python test_foveate_tools.py

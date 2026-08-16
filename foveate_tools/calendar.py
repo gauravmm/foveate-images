@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Generate deterministic calendar images with exact highlight truth."""
 
 from __future__ import annotations

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Score autonomous calendar answers against synthetic truth sidecars."""
 
 from __future__ import annotations

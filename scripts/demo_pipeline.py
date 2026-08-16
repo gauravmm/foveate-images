@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Generate synthetic calendars and run each through the foveate pipeline."""
 
 from __future__ import annotations
