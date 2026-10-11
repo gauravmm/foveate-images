@@ -7,20 +7,30 @@ description: Navigate large or dense images through deterministic string-address
 
 Use the bundled `foveate.py` script to replace model-written crop coordinates with labeled regions such as `ROOT/B2`. Treat labels as navigation aids, not semantic claims.
 
-Locate `foveate.py` in the same directory as this file. If `uv` is available, prefer `uv run /absolute/path/to/foveate.py`. Its PEP 723 metadata installs Pillow in an isolated environment. Otherwise, install Pillow in an isolated environment and use `python3 /absolute/path/to/foveate.py`.
+Keep `foveate.py` and `autostructure.py` in the same directory as this file. For automatic discovery, use `uv run --with opencv-python-headless --with numpy /absolute/path/to/foveate.py`. Pillow is declared in the script metadata. These dependencies run in an isolated environment. With Python, install Pillow, NumPy, and OpenCV in an isolated environment first. Grid and existing crop operations require only Pillow. Automatic mode falls back to the grid if detection dependencies are unavailable and records the reason.
+
+Use fresh output directories for maps and focus batches; existing artifacts cannot be overwritten. Transparent pixels are composited onto white for analysis and annotated navigation. Raw evidence retains its original alpha and pixels.
 
 ## Workflow
 
 1. Inspect the source image and the user's requested output.
-2. Choose a coarse grid. Match obvious repeated panels when easy. Otherwise, start with `3 x 3`. Do not search for a perfect grid.
-3. Create a map in a task-local directory:
+2. Create an automatic map in a task-local directory:
 
    ```bash
-   uv run /absolute/path/to/foveate.py map INPUT \
-     --output WORK/map --rows ROWS --columns COLUMNS
+   uv run --with opencv-python-headless --with numpy \
+     /absolute/path/to/foveate.py map INPUT --output WORK/map
    ```
 
-   Use `--region LEFT,TOP,RIGHT,BOTTOM` only when a clear content body excludes headers or legends that would misalign the grid.
+   Use `--region LEFT,TOP,RIGHT,BOTTOM` only when the task explicitly targets a source region. Otherwise, keep headers and legends available.
+3. Read `structures.json` for the selected structure, fallback reason, and alternative candidate IDs. Use the default selection when its regions match the task. Use `--mode hough`, `--mode gutters`, or `--mode panels` for a specific detector. Use `--mode grid --rows ROWS --columns COLUMNS` for an explicit grid. An explicit detector reports failure instead of silently using a grid.
+
+   To choose an alternative, create a separate map:
+
+   ```bash
+   uv run /absolute/path/to/foveate.py map INPUT --output WORK/alternative \
+     --discovery WORK/map/structures.json --candidate CANDIDATE_ID
+   ```
+
 4. Inspect `overview_raw.png` and `overview_annotated.png`. Use the annotated image to bind anchors and the raw image as evidence.
 5. Focus the required anchors:
 
@@ -36,8 +46,10 @@ Locate `foveate.py` in the same directory as this file. If `uv` is available, pr
      --output WORK/focus --all --margin 0.08
    ```
 
+   A detected map can already contain descendants. `--all` covers only immediate children of `ROOT`. When a parent remains unreadable, inspect its descendants from the manifest. Batch at most 16 anchors per call. Every relevant leaf core must receive readable inspection before an exhaustive answer.
+
 6. Inspect each `*_raw.png`. Use its paired `*_annotated.png` only when the breadcrumb or location is unclear.
-7. If evidence remains unreadable, refine only that anchor and use the successor manifest:
+7. If evidence remains unreadable, refine only that anchor and use the successor manifest. `--mode auto` discovers local structure. Manual grid dimensions remain available:
 
    ```bash
    uv run /absolute/path/to/foveate.py focus WORK/map/manifest.json \
@@ -63,3 +75,4 @@ Locate `foveate.py` in the same directory as this file. If `uv` is available, pr
 - Never answer an exhaustive task after you inspect only promising regions.
 - Prefer one coarse map plus selected refinement over repeated speculative coordinate crops.
 - Keep rows times columns at or below 16 and refinement depth at or below 4.
+- Treat detector scores as heuristic rankings. They do not prove that a region contains the requested evidence.

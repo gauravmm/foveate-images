@@ -7,6 +7,9 @@ license = "MIT"
 requires-python = ">=3.10"
 dependencies = ["Pillow>=10.2"]
 
+[project.optional-dependencies]
+detection = ["numpy>=1.26", "opencv-python-headless>=4.10"]
+
 [project.scripts]
 generate-calendars = "foveate_tools.calendar:main"
 
@@ -31,6 +34,11 @@ extend-select = ["I", "B", "UP"]
 include = [
   "foveate_tools",
   "skills/foveate-images/foveate.py",
+  "skills/foveate-images/autostructure.py",
+  "scripts/benchmark_autostructure.py",
+  "scripts/evaluate_calendar_vision.py",
+  "test_autostructure.py",
+  "test_benchmark_autostructure.py",
   "scripts/score_calendar_results.py",
   "test_foveate_tools.py",
 ]

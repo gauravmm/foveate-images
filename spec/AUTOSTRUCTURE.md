@@ -1,6 +1,6 @@
 # Automatic image structure discovery
 
-Status: proposed. Version 1 covers Hough lines, gutters, and repeated panels.
+Status: version 1 implemented. Detector version `1.0.1`, selection policy `autostructure-v1.0`. Version 1 covers Hough lines, gutters, and repeated panels; camera correction remains future work.
 
 ## Goal
 
@@ -8,7 +8,7 @@ The first map of an image should discover useful structure before it creates a u
 
 Discovery produces region geometry. The vision agent still interprets the regions and decides what evidence to inspect. A detected rectangle does not establish that it contains a month or any other semantic object.
 
-This proposal extends [FOVEATE.md](FOVEATE.md). It preserves source-global coordinates, stable anchors, immutable maps, and lossless raw crops.
+This specification extends [FOVEATE.md](FOVEATE.md). It preserves source-global coordinates, stable anchors, immutable maps, and lossless raw crops.
 
 ## Version 1 scope
 
@@ -82,9 +82,33 @@ The candidate option requires a report input, such as `--discovery DIR/structure
 
 Expose parameters for angle tolerance, minimum segment length, maximum line gap, minimum gutter width, panel size tolerance, and alignment tolerance. Express distance parameters as fractions of the analyzed region or estimated feature size where possible.
 
+The implemented `--detector-config` input is a JSON object. Its default values are:
+
+```json
+{
+  "hough": {
+    "angle_tolerance_degrees": 3.0,
+    "min_segment_length": 0.10,
+    "max_line_gap": 0.02
+  },
+  "gutters": {"min_gutter_width": 0.005},
+  "panels": {"size_tolerance": 0.20, "alignment_tolerance": 0.02},
+  "selection": {"min_score": 0.70, "min_margin": 0.08},
+  "probe": {"max_side": 1024},
+  "force_all_detectors": false,
+  "collect_timings": false
+}
+```
+
+Partial objects override defaults. `force_all_detectors` disables probe gating for evaluation; it does not bypass validation or ranking. `collect_timings` includes backend, preprocessing, probe, detector, selection, and total elapsed milliseconds. Timing diagnostics vary across runs and are excluded by default. `max_side` must be an integer from 128 through 4096; nonfinite values, unknown keys, and invalid ranges fail before detection.
+
 ## Detector deployment heuristics
 
 These are initial engineering heuristics. Freeze their values under a policy version after evaluation. A probe score is evidence for running a detector, not a probability that its result is correct.
+
+The implemented policy is frozen at `autostructure-v1.0`. Hough runs when both directions have at least two segments from Hough or directional morphology. Gutters run when an interior low-occupancy band has at least 3 probe pixels of width, the configured fractional width, occupancy at most 2.5%, and foreground on both sides. Panels run when contour grouping finds a repeated aligned arrangement. High-resolution line retry is triggered by gutter or panel evidence when downsampling erased line support. These gates are permissive; candidate validation determines acceptance.
+
+Alpha-bearing and palette-transparent images are composited onto white for analysis and annotated navigation. The original normalized raster and all raw crops preserve their alpha and source pixels. The discovery report records the analysis background.
 
 Analyze a reduced image with a maximum side of 1024 pixels for cheap probes. Preserve the source-to-probe transform. Verify proposed boundaries against the source image before assigning final bounds. Thin lines that disappear at probe scale need a higher-resolution retry when other probes indicate structured content.
 
@@ -188,6 +212,16 @@ Include at most three ranked structural alternatives and the grid option in the 
 
 These scores are heuristic rankings. Do not describe them as calibrated confidence probabilities.
 
+### Implemented feature measurements
+
+Boundary support examines source-resolution strips around every ownership cut. It takes the greater of background separation and continuous edge coverage, then averages across cuts. Content integrity is one minus foreground occupancy unsupported by continuous edges at those cuts. This is a clipping proxy; it does not establish semantic content preservation.
+
+Structure fit comes from aligned contour groups, consistent line grids, or recursively supported gutter cuts. Repeated-panel proposals require average source border support of at least 0.40; Hough-supported panel groups additionally require segment support of at least 0.50. Navigation usefulness starts with the number of leaves, saturating at four. It discounts gutters by 0.60 and scales repeated panels and local line grids by their explained image area. Usefulness below 0.20 rejects a candidate even if the weighted score passes.
+
+Complexity costs 0.002 per leaf beyond 16 and 0.005 per partition beyond four. Per-parent limits still reject more than 16 children or depth beyond four. Nested panel groups that explain only part of a coarse arrangement lose navigation weight; internal line grids covering less than half a supported coarse panel layout receive a 0.70 score multiplier. These adjustments favor useful coarse navigation without assuming calendar semantics.
+
+Refinement validates candidates against the remaining absolute anchor depth. Automatic mode removes proposals that cannot fit and reselects a valid alternative or uses a one-level grid; an explicit detector fails when no accepted proposal fits.
+
 ## Geometry and manifest changes
 
 The current manifest derives all regions from equal subdivisions. Detected layouts need explicit boundaries and page regions with unequal dimensions.
@@ -242,7 +276,7 @@ Manual child `--rows` and `--columns` retain uniform refinement. Reject combinat
 5. Enable first-pass automatic selection and alternative selection.
 6. Add explicit structural refinement through successor manifests.
 
-Keep detection separate from crop arithmetic. Share source normalization and coordinate conversion. OpenCV is a proposed optional detection dependency. Plain grid and legacy focus operations retain the Pillow-only path.
+Keep detection separate from crop arithmetic. Share source normalization and coordinate conversion. OpenCV and NumPy are optional dependencies installed through the `detection` extra. Plain grid and legacy focus operations retain the Pillow-only path.
 
 The distributed skill must describe the automatic default, alternative selection, and explicit modes. It must keep its requirements for raw evidence, exhaustive coverage, and overlap ownership.
 
@@ -269,6 +303,16 @@ Compare uniform grids, each forced detector, gated automatic selection, and auto
 Require zero failures for exact partition coverage, source-coordinate mapping, raw crop fidelity, deterministic IDs, immutable predecessors, and legacy manifest loading. Test alternative selection and explicit-mode failure behavior.
 
 Tune thresholds on a development set and freeze them before held-out evaluation. Report results separately for synthetic calendars and other image classes. A successful calendar demonstration alone does not establish general image-structure discovery.
+
+### Current evaluation and limitations
+
+`scripts/benchmark_autostructure.py` generates 76 deterministic workloads and compares six modes, including a gated-versus-ungated ablation. It separates development, seed holdout, and limited template holdout, scores one-to-one region matches, and measures fresh-process peak memory. Synthetic truth is available only to evaluation code. The HTML report, raw measurements, and generated images belong in the ignored `reports/` directory and are not committed.
+
+The initial held-out positive region F1 was 0.918 for automatic discovery versus 0.170 for the default grid. Four of twelve held-out negative images were incorrectly accepted, including line art and a single framed illustration. Thick frame edges can be mistaken for separate grid lines and create narrow sliver cells; gutter cuts can over-segment line art. These expose limits of boundary merging, foreground, and navigation heuristics. Preserve these failures in the report; real documents, photographs, and broader negative sets need further evaluation before claims of general reliability.
+
+An independent transparency correction produced detector `1.0.1` after the initial frozen evaluation. It did not change policy weights or thresholds; rerunning all 456 RGB comparisons produced identical prediction sets and accuracy measurements. Transparent-input correctness is covered separately by adversarial tests.
+
+`scripts/evaluate_calendar_vision.py` can run a separate local Virili extraction trial. Its full-image and cropped conditions use different request and token budgets because the server permits two images per request. Report the actual budgets and parsing failures. This exploratory trial does not satisfy the matched-budget extraction acceptance criterion above.
 
 ## Future work
 
