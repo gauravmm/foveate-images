@@ -2,7 +2,7 @@
 
 ## Docs and comments
 
-Apply `.claude/skills/ste-writing` and `.claude/skills/terse-comments` to every comment and docstring. Apply them even when a request does not name the skills. Use `ste-writing` for every design document at document scale. Use short sentences with one claim each. Use a bullet list when prose contains a set. Do not write design documents as essays. Python and Markdown files must contain ASCII text. The `spec/` directory and vendored `.claude/` skills are exempt because they contain quoted or upstream text. Do not narrate code history. Git records history.
+Apply `.claude/skills/terse-comments` to every comment and docstring, even when a request does not name the skill. Python and Markdown files must contain ASCII text. The `spec/` directory and vendored `.claude/` skills are exempt because they contain quoted or upstream text. Do not narrate code history. Git records history.
 
 ## Layout
 

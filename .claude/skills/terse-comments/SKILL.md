@@ -1,6 +1,6 @@
 ---
 name: terse-comments
-description: Write or tighten a comment or docstring in this repo - state the decision, then only what the code cannot say. Use when writing a new comment or docstring, when asked to make one shorter or less wordy, or when one argues its case instead of stating it. Applies on top of ste-writing, which governs sentence form.
+description: Write or tighten a comment or docstring in this repo - state the decision, then only what the code cannot say. Use when writing a new comment or docstring, when asked to make one shorter or less wordy, or when one argues its case instead of stating it.
 ---
 
 # terse-comments
